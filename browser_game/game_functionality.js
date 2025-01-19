@@ -68,11 +68,11 @@ async function fetchWordleWord() {
     wordleWord = words[Math.floor(Math.random() * words.length)];
 
     // Display the word on the screen for debugging purposes
-    const debugElement = document.createElement("p");
-    debugElement.textContent = `DEBUG: Wordle Word - ${wordleWord}`;
-    debugElement.style.color = "red";
-    debugElement.style.fontSize = "14px";
-    document.body.appendChild(debugElement);
+    // const debugElement = document.createElement("p");
+    // debugElement.textContent = `DEBUG: Wordle Word - ${wordleWord}`;
+    // debugElement.style.color = "red";
+    // debugElement.style.fontSize = "14px";
+    // document.body.appendChild(debugElement);
   } catch (error) {
     console.error("Error fetching the Wordle word:", error);
   }
