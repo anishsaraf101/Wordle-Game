@@ -18,35 +18,10 @@ const winBox = document.getElementById("win-box");
 const lossBox = document.getElementById("loss-box");
 const correctWordSpan = document.getElementById("correct-word");
 
-// Function to generate a UUID
-function generateUUID() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-    const r = (Math.random() * 16) | 0;
-    const v = c === 'x' ? r : (r & 0x3) | 0x8;
-    return v.toString(16);
-  });
-}
-
-// Function to get or create the user's ID
-function getOrCreateUserId() {
-  let userId = localStorage.getItem('user_id');
-  if (!userId) {
-    userId = generateUUID();
-    localStorage.setItem('user_id', userId); // Save the user_id in localStorage
-    console.log(`New user_id generated: ${userId}`);
-  } else {
-    console.log(`Existing user_id found: ${userId}`);
-  }
-  return userId;
-}
-
-// Call the function to ensure a user ID is set
-const userId = getOrCreateUserId();
-
 // Function to fetch the dictionary words from the text file
 async function loadDictionaryWords() {
   try {
-    const response = await fetch("/static/files/DictionaryWords.txt");
+    const response = await fetch("DictionaryWords.txt");
     if (!response.ok) throw new Error("Failed to fetch dictionary words");
 
     const text = await response.text();
@@ -60,14 +35,14 @@ async function loadDictionaryWords() {
 // Function to fetch a random word from the text file
 async function fetchWordleWord() {
   try {
-    const response = await fetch("/static/files/RandomWords.txt");
+    const response = await fetch("RandomWords.txt");
     if (!response.ok) throw new Error("Failed to fetch word list");
 
     const text = await response.text();
     const words = text.split("\n").map(word => word.trim()).filter(word => word.length === 5);
     wordleWord = words[Math.floor(Math.random() * words.length)];
 
-    // Display the word on the screen for debugging purposes
+    // // Display the word on the screen for debugging purposes
     // const debugElement = document.createElement("p");
     // debugElement.textContent = `DEBUG: Wordle Word - ${wordleWord}`;
     // debugElement.style.color = "red";
