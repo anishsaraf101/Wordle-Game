@@ -1,3 +1,5 @@
+# Wordle Game
+
 Name: Anish Saraf
 No known bugs or defects in the program
 `
