@@ -30,7 +30,7 @@ This project is a **Wordle game clone** that allows users to guess a five-letter
 ## Technologies Used
 ### Core
 - **Browser**: HTML, CSS, JavaScript
-- **Terminal**: Java Python
+- **Terminal**: Java, Python
 
 ---
 
@@ -48,6 +48,7 @@ cd wordle-clone
 cd browser_game
 python -m http.server 8000
 ```
+This ensures JavaScript code can open related text files.
 
 ### 3. Start a Local Python Server
 Click the browser link in the terminal or copy and paste the link into a modern browser.
